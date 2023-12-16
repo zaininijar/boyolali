@@ -1,0 +1,12 @@
+{
+  "name": "bank-wonosobo-login",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "yarn tailwindcss -i ./src/css/app.css -o ./dist/css/app.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.6"
+  }
+}

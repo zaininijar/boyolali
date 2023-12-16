@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../dist/css/app.css" rel="stylesheet" />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Noto+Sans:wght@100;200;300;400;500;600;700&family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column-reverse;
+      }
+
+      .content {
+        border: 1px solid #ccc;
+        padding: 15px;
+        max-width: 345px;
+        background-color: #fff;
+        border-radius: 5px;
+        overflow: hidden;
+        margin: 100px auto;
+      }
+
+      .input {
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        display: block;
+        box-sizing: border-box;
+        padding: 15px 10px;
+        outline: none;
+        font-size: 18px;
+        font-weight: normal;
+        font-family: "Open Sans", sans-serif;
+        width: 343px;
+      }
+
+      .captcha-wrap {
+        position: relative;
+      }
+
+      #CaptchaImageCode {
+        text-align: center;
+        margin-top: 15px;
+        padding: 0px 0;
+        width: 300px;
+        overflow: hidden;
+      }
+
+      .capcode {
+        font-size: 46px;
+        display: block;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        cursor: default;
+        letter-spacing: 1px;
+        font-family: "Roboto Slab", serif;
+        font-weight: 100;
+        font-style: italic;
+      }
+
+      .ReloadBtn {
+        background: url("../images/reload.png") left top no-repeat;
+        background-size: 100%;
+        width: 32px;
+        height: 32px;
+        border: 0px;
+        outline: none;
+        position: absolute;
+        bottom: 30px;
+        left: 310px;
+        cursor: pointer;
+      }
+
+      .btnSubmit {
+        margin-top: 15px;
+        border: 0px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 18px;
+        background-color: #1285c4;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .success {
+        color: green;
+        font-size: 18px;
+        margin-bottom: 15px;
+        display: none;
+      }
+
+      .error {
+        color: red;
+        display: none;
+      }
+    </style>
+
+    <title>Bank Wonosobo | Login</title>
+  </head>
+  <body>
+    <div class="__wrapper">
+      <div class="__main-bg">
+        <div class="__main-filter"></div>
+        <img
+          class="absolute w-full h-full z-20 object-right-bottom object-cover"
+          src="../images/pattern.png"
+          alt=""
+        />
+        <img
+          class="w-full h-full object-center object-cover"
+          src="../images/login-bg.jpg"
+          alt=""
+        />
+      </div>
+      <div class="__container">
+        <main class="__main-content">
+          <div class="absolute h-[300px] w-full top-0">
+            <img
+              class="object-cover object-right sm:h-[270px] h-[250px]"
+              src="../images/heading-form.svg"
+              alt=""
+            />
+          </div>
+          <div class="__brand">
+            <img
+              class="sm:w-[140px] w-[120px]"
+              src="../images/brand.png"
+              alt=""
+            />
+            <h1 class="text-[24px] sm:text-[28px] font-bold">Bank Wonosobo</h1>
+            <p class="text-center sm:text-sm text-xs font-normal roboto">
+              Aplikasi Transaksi Keuangan Pemda Desa. <br />
+              Silahkan Login untuk melanjutkan
+            </p>
+          </div>
+          <form class="__form-group" action="logged.html" method="post">
+            <div class="relative flex flex-col w-full justify-start">
+              <input
+                class="__input"
+                type="text"
+                required
+                id="username"
+                name="username"
+                placeholder="Masukan Username Anda"
+                oninput="inputValidation(event)"
+                oninvalid="inputValidation(event)"
+                data-control="err-username"
+              />
+              <div id="err-username" class="__error-message hidden">
+                Harap isi Username
+              </div>
+            </div>
+            <div class="relative flex flex-col w-full mt-3">
+              <input
+                class="__input"
+                type="password"
+                id="password"
+                required
+                data-control="err-password"
+                name="password"
+                oninput="inputValidation(event)"
+                oninvalid="inputValidation(event)"
+                placeholder="Masukan Password Anda"
+              />
+              <div
+                id="err-password"
+                class="__error-message hidden absolute -bottom-4"
+              >
+                Harap isi kata sandi
+              </div>
+            </div>
+            <div class="__captcha my-6">
+              <div class="flex items-center gap-2">
+                <div id="CaptchaImageCode">
+                  <canvas
+                    id="CapCode"
+                    class="w-[105px] h-[40px] -mt-2"
+                  ></canvas>
+                </div>
+                <div
+                  class="border-2 border-[#E7A600] rounded-full"
+                  onclick="CreateCaptcha()"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="25"
+                    viewBox="0 0 24 25"
+                    fill="none"
+                  >
+                    <g clip-path="url(#clip0_6_723)">
+                      <path
+                        d="M12 4.5V1.5L8 5.5L12 9.5V6.5C15.31 6.5 18 9.19 18 12.5C18 13.51 17.75 14.47 17.3 15.3L18.76 16.76C19.54 15.53 20 14.07 20 12.5C20 8.08 16.42 4.5 12 4.5ZM12 18.5C8.69 18.5 6 15.81 6 12.5C6 11.49 6.25 10.53 6.7 9.7L5.24 8.24C4.46 9.47 4 10.93 4 12.5C4 16.92 7.58 20.5 12 20.5V23.5L16 19.5L12 15.5V18.5Z"
+                        fill="#E7A600"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_6_723">
+                        <rect
+                          width="24"
+                          height="24"
+                          fill="white"
+                          transform="translate(0 0.5)"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+              <div class="flex flex-col relative">
+                <input
+                  type="text"
+                  class="__input py-3"
+                  id="captcha-code"
+                  required
+                  placeholder="Konfirmasi Captcha"
+                />
+                <div
+                  id="err-invalid-captcha"
+                  class="__error-message hidden absolute -bottom-4"
+                >
+                  Invalid captcha
+                </div>
+              </div>
+            </div>
+            <button
+              onclick="CheckCaptcha(event); Submit()"
+              type="submit"
+              id="btn-submit"
+              class="__button"
+            >
+              Masuk
+            </button>
+          </form>
+        </main>
+      </div>
+      <footer
+        class="text-white text-sm text-center absolute md:bottom-8 bottom-4 z-30 noto-sans"
+      >
+        Powered by PT Lawang Sewu Teknologi
+      </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/captcha.js"></script>
+  </body>
+</html>
