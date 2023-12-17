@@ -4,7 +4,7 @@
 
 @layer components {
   .__wrapper {
-    @apply min-h-screen h-screen max-h-screen relative overflow-hidden flex flex-col items-center justify-center;
+    @apply min-h-screen h-screen max-h-screen relative overflow-hidden flex flex-col items-start px-32 justify-center;
   }
 
   .__main-bg {
