@@ -4,7 +4,7 @@
 
 @layer components {
   .__wrapper {
-    @apply min-h-screen h-screen max-h-screen relative overflow-hidden flex flex-col md:items-start items-center px-4 sm:px-8 md:px-32 justify-center;
+    @apply min-h-screen h-screen max-h-screen relative overflow-hidden flex flex-col md:items-start items-center px-2 sm:px-8 md:px-32 justify-center;
   }
 
   .__main-bg {
@@ -16,7 +16,7 @@
   }
 
   .__container {
-    @apply relative z-20 sm:max-w-[516px] sm:min-w-[480px] max-w-[460px] sm:w-[480px] px-4;
+    @apply relative z-20 sm:max-w-[516px] sm:min-w-[480px] max-w-[460px] sm:w-[480px] px-2;
   }
 
   .__main-content {
@@ -28,7 +28,7 @@
   }
 
   .__captcha {
-    @apply items-center sm:gap-8 gap-4 grid grid-cols-2;
+    @apply sm:gap-8 gap-4 flex w-full items-center;
   }
 
   .__brand {
