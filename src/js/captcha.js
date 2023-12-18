@@ -20,7 +20,7 @@ function CreateCaptcha() {
         var f = alpha[Math.floor(Math.random() * alpha.length)];
     }
     cd = a + ' ' + b + ' ' + c + ' ' + d + ' ' + e + ' ' + f;
-    $('#CaptchaImageCode').empty().append('<div class="relative"><canvas id="CapCode" class="w-[105px] h-[40px] -mt-1"></canvas><div class="h-[1px] bg-black top-2 -rotate-3 left-[30%] w-[50px] mx-auto z-10 absolute"></div></div>')
+    $('#CaptchaImageCode').empty().append('<div class="relative"><canvas id="CapCode" class="w-[130px] h-full"></canvas><div class="h-[2px] bg-black top-8 -rotate-6 left-[16%] mx-auto z-10 absolute w-[85px]"></div></div>')
 
     var c = document.getElementById("CapCode"),
         ctx = c.getContext("2d"),
@@ -32,11 +32,11 @@ function CreateCaptcha() {
         var pattern = ctx.createPattern(img, "repeat");
         ctx.fillStyle = pattern;
         ctx.fillRect(0, 0, c.width, c.height);
-        ctx.font = "42px Roboto Slab";
+        ctx.font = "50px Roboto Slab";
         ctx.fillStyle = 'black';
         ctx.textDecoration = 'line-through';
         ctx.textAlign = 'center';
-        ctx.setTransform(1, -0.1, 0, 1, 0, 10);
+        ctx.setTransform(1, -0.1, 0, 1, 3, 46);
         ctx.fillText(cd, x, 55);
     };
 
