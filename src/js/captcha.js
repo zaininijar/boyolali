@@ -32,8 +32,8 @@ function CreateCaptcha() {
         var pattern = ctx.createPattern(img, "repeat");
         ctx.fillStyle = pattern;
         ctx.fillRect(0, 0, c.width, c.height);
-        ctx.font = "60px Roboto Slab";
-        ctx.fillStyle = 'black';
+        ctx.font = "50px Roboto Slab";
+        ctx.fillStyle = 'white';
         ctx.textDecoration = 'line-through';
         ctx.textAlign = 'center';
         ctx.setTransform(1, -0.1, 0, 1, 3, 46);

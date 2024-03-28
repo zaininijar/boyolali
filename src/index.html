@@ -13,17 +13,11 @@
       rel="stylesheet"
     />
 
-    <title>Bank Wonosobo | Login</title>
+    <title>Kab. Sleman | Login</title>
   </head>
   <body>
     <div class="__wrapper">
       <div class="__main-bg">
-        <!-- <div class="__main-filter"></div> -->
-        <!-- <img
-          class="absolute w-full h-full z-20 object-right-bottom object-cover"
-          src="../images/pattern.png"
-          alt=""
-        /> -->
         <img
           class="w-full h-full object-center object-cover"
           src="../images/bw.png"
@@ -32,28 +26,20 @@
       </div>
       <div class="__container">
         <main class="__main-content">
-          <div class="absolute h-[300px] w-full top-0">
-            <img
-              class="object-cover object-right sm:h-[270px] h-[250px]"
-              src="../images/heading-form.svg"
-              alt=""
-            />
-          </div>
           <div class="__brand">
-            <img
-              class="sm:w-[140px] w-[120px]"
-              src="../images/brand.png"
-              alt=""
-            />
-            <h1 class="text-[24px] sm:text-[28px] font-bold">Bank Wonosobo</h1>
-            <p class="text-center text-sm font-normal roboto">
-              <b>Cash Management System</b>.
-              <br />
-              Silahkan Login untuk melanjutkan
+            <h1 class="__heading-1">
+              <span class="text-gradient-primary">Selamat Datang</span>
+              <span>di Kab. Sleman</span>
+            </h1>
+            <p
+              class="text-center text-sm md:text-base font-normal roboto text-[#D0D0D0]"
+            >
+              Silahkan masuk ke akun Anda untuk melanjutkan
             </p>
           </div>
-          <form class="__form-group" action="logged.html" method="post">
+          <form class="__form-group mt-4" action="logged.html" method="post">
             <div class="relative flex flex-col w-full justify-start">
+              <label class="__input-label" for="username"> Email </label>
               <input
                 class="__input"
                 type="text"
@@ -70,7 +56,8 @@
               </div>
             </div>
             <div class="relative flex flex-col w-full mt-3">
-              <div class="flex items-center">
+              <label class="__input-label" for="username"> Password </label>
+              <div class="flex items-center text-white">
                 <input
                   class="__input w-full"
                   type="password"
@@ -114,12 +101,12 @@
                   </svg>
                 </button>
               </div>
-              <div
-                id="err-password"
-                class="__error-message hidden absolute -bottom-4"
-              >
+              <div id="err-password" class="__error-message hidden">
                 Harap isi kata sandi
               </div>
+            </div>
+            <div class="__forgot-password text-gradient-primary">
+              <a href="#"> Lupa Password? </a>
             </div>
             <div class="__captcha my-6">
               <div class="flex items-center justify-between w-8/12">
@@ -156,6 +143,7 @@
                   </svg>
                 </div>
               </div>
+
               <div class="flex flex-col relative w-4/12">
                 <input
                   type="text"
@@ -164,10 +152,7 @@
                   required
                   placeholder="Captcha"
                 />
-                <div
-                  id="err-invalid-captcha"
-                  class="__error-message hidden absolute -bottom-4"
-                >
+                <div id="err-invalid-captcha" class="__error-message hidden">
                   Invalid captcha
                 </div>
               </div>
@@ -182,12 +167,12 @@
             </button>
           </form>
         </main>
+        <footer
+          class="text-white md:text-sm text-xs text-center absolute md:bottom-8 bottom-4 z-20 noto-sans"
+        >
+          Powered by PT Lawang Sewu Teknologi
+        </footer>
       </div>
-      <footer
-        class="text-white text-sm text-center absolute md:bottom-8 bottom-4 z-30 noto-sans"
-      >
-        Powered by PT Lawang Sewu Teknologi
-      </footer>
     </div>
 
     <script src="js/app.js"></script>

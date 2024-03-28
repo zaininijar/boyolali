@@ -4,23 +4,19 @@
 
 @layer components {
   .__wrapper {
-    @apply min-h-screen h-screen max-h-screen relative overflow-hidden flex flex-col md:items-start items-center px-2 sm:px-8 md:px-32 justify-center;
+    @apply min-h-screen h-screen max-h-screen relative overflow-hidden flex flex-col md:items-start items-center justify-center;
   }
 
   .__main-bg {
     @apply inset-0 absolute overflow-hidden z-10;
   }
 
-  .__main-bg .__main-filter {
-    @apply absolute z-10 w-full h-full inset-0 bg-gradient-to-b from-[#29419666] to-transparent bg-[#040D1480];
-  }
-
   .__container {
-    @apply relative z-20 sm:max-w-[516px] sm:min-w-[480px] max-w-[460px] sm:w-[480px] px-2;
+    @apply relative z-30 bg-[#1D1B1B66] backdrop-blur-sm md:max-w-[572px] md:min-w-[572px] max-w-full min-w-full md:w-[572px] px-2 h-full flex flex-col items-center justify-center md:rounded-r-[20px];
   }
 
   .__main-content {
-    @apply bg-white rounded-[20px] overflow-hidden relative w-full flex flex-col items-center justify-between sm:px-11 px-8 pt-6 pb-8 min-h-[538px] md:min-h-[588px];
+    @apply bg-transparent;
   }
 
   .__form-group {
@@ -32,15 +28,23 @@
   }
 
   .__brand {
-    @apply relative z-10 text-white flex flex-col items-center;
+    @apply relative z-10 text-white flex flex-col items-start gap-2;
+  }
+
+  .__heading-1 {
+    @apply text-[28px] sm:text-[28px] font-bold flex flex-col gap-0 leading-tight;
   }
 
   .__button {
-    @apply roboto rounded-[10px] __button-gradient py-4 font-semibold text-white;
+    @apply roboto rounded-[10px] __button-gradient md:py-4 py-3 font-semibold text-white;
   }
 
   .__input {
-    @apply noto-sans md:py-4 py-3 px-3 text-sm text-[#7F7F7F] border-b border-[#7F7F7F] focus:border-b-[#f7971e] focus:bg-[#f7971e10] outline-none;
+    @apply noto-sans bg-transparent md:py-4 py-3 px-3 text-sm text-[#EEEEEE] placeholder:text-[#EEEEEE] border rounded-[10px] border-[#EEEEEE] focus:border-[#a83279] focus:bg-[#a8327910] focus:outline-[#a83279];
+  }
+
+  .__input-label {
+    @apply text-white inter font-semibold text-base;
   }
 
   .__input.__input-error {
@@ -48,16 +52,25 @@
   }
 
   .__error-message {
-    @apply noto-sans px-3 text-xs font-normal text-red-300;
+    @apply noto-sans mt-1 text-xs font-normal text-red-300;
   }
 
   .__inactive {
     @apply opacity-50;
   }
+
+  .__forgot-password a {
+    @apply text-sm font-semibold;
+  }
 }
 
 .__button-gradient {
-  background: linear-gradient(91deg, #f7971e 31.66%, #ffd200 126.96%);
+  background: linear-gradient(91deg, #d38312 31.66%, #a83279 126.96%);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1);
+}
+
+.__button-gradient:hover {
+  background: linear-gradient(91deg, #d38312 31.66%, #a83279 126.96%);
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1);
 }
 
@@ -71,4 +84,10 @@
 
 .inter {
   font-family: "Inter", sans-serif;
+}
+
+.text-gradient-primary {
+  background: -webkit-linear-gradient(-92deg, #ffb751 50%, #a83279);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
